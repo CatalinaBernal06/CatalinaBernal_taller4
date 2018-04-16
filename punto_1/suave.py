@@ -166,60 +166,6 @@ def fourier_inv(mat):
     
     return fourier_inv
 
-# Organiza la matriz resultante de la convolucion (la matriz que se
-# debe obtener es simetrica). Recibe como parametro una matriz y un vector 
-# con el centro de la imagen.
-#
-#def  org_mat(mat, centro):
-#    
-#    dim = np.shape(mat)
-#    y = dim[0]
-#    x = dim[1]
-#    z = dim[2]
-#    p_x = centro[0]
-#    p_y = centro[1]
-#    #estos centros han sido desviados para los casos en los que 
-#    # la matriz posee dimensiones impares
-#    px = centro[0] - 1
-#    py = centro[1] - 1
-#    
-#    new = np.copy(mat)
-#    old = np.copy(mat)
-#    
-#    for cap in range(z):
-#        x1 = old[:p_y, :p_x, cap]
-#        x2 = old[:p_y, p_x:x, cap]
-#        x3 = old[p_y:y, :p_x, cap]
-#        x4 = old[p_y:y, p_x:x, cap]
-#    
-#        if(x%2 == 0):
-#            if(y%2 == 0):
-#                new[p_y:y, p_x:x, cap] = x1
-#                new[:p_y, p_x:x, cap] = x3
-#                new[p_y:y, :p_x, cap] = x2
-#                new[:p_y, :p_x, cap] = x4
-#                    
-#            else:
-#                new[py:y, p_x:x, cap] = x1
-#                new[:py, p_x:x, cap] = x3
-#                new[py:y, :p_x, cap] = x2
-#                new[:py, :p_x, cap] = x4
-#            
-#        elif(x%2 !=0):
-#            if(y%2==0):
-#                new[p_y:y, px:x, cap] = x1
-#                new[:p_y, px:x, cap] = x3
-#                new[p_y:y, :px, cap] = x2
-#                new[:p_y, :px, cap] = x4
-#            
-#            else:
-#                new[py:y, px:x, cap] = x1
-#                new[:py, px:x, cap] = x3
-#                new[py:y, :px, cap] = x2
-#                new[:py, :px, cap] = x4
-#            
-#    return new
-
 
 c = centro_img(x_ancho, y_alto)
 g = gauss(c, n_pixel_kernel, y_alto, x_ancho, z_capas)
